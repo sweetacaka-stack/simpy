@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="background-color: #F5F1EB !important; background: #F5F1EB !important;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA - Design for quiet living</title>
+    <meta name="description" content="以极简生活美学为方法，探索产品视觉、商业图像与数字体验的秩序感。">
+    <style>
+        /* 火狐浏览器强制背景色 - 最高优先级 */
+        html, body {
+            background-color: #F5F1EB !important;
+            background: #F5F1EB !important;
+            background-image: none !important;
+        }
+
+        /* 针对火狐浏览器的额外处理 */
+        @-moz-document url-prefix() {
+            html, body {
+                background-color: #F5F1EB !important;
+                background: #F5F1EB !important;
+            }
+        }
+
+        /* 重置深色模式 */
+        @media (prefers-color-scheme: dark) {
+            html, body {
+                background-color: #F5F1EB !important;
+                background: #F5F1EB !important;
+                color: #1A1A1A !important;
+            }
+        }
+/* 强制背景色 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #F5F1EB !important;
+            background: #F5F1EB !important;
+            color: #1A1A1A;
+            line-height: 1.8;
+            font-size: 15px;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --color-bg: #F5F1EB;
+            --color-text: #1A1A1A;
+            --color-text-muted: #6B6560;
+            --color-text-secondary: #5a5550;
+            --color-border: #E5E0DA;
+            --color-accent: #B36B4A;
+            --color-accent-soft: rgba(179, 107, 74, 0.08);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+            font-size: 15px;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .nav-content {
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            letter-spacing: 0.3em;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.08em;
+            position: relative;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-text);
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            color: var(--color-text);
+        }
+
+        .nav-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link.active .nav-dot {
+            background: var(--color-accent);
+        }
+
+        .nav-link:hover .nav-dot {
+            background: var(--color-accent);
+            transform: scale(1.3);
+        }
+
+        /* Hero Section */
+        section {
+            padding: 160px 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-vertical {
+            position: absolute;
+            left: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: var(--color-text-muted);
+            opacity: 0.6;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            letter-spacing: 0.24em;
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-subtitle::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--color-border);
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        .hero-description {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        .hero-tagline {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.16em;
+            margin-bottom: 48px;
+        }
+
+        .hero-accent {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .accent-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-accent);
+        }
+
+        .accent-line {
+            width: 80px;
+            height: 1px;
+            background: var(--color-border);
+        }
+
+        .accent-text {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.12em;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-text-muted);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 48px;
+            background: var(--color-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: var(--color-accent);
+            animation: scrollDown 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollDown {
+            0%, 100% { transform: translateY(-100%); opacity: 0; }
+            50% { transform: translateY(100%); opacity: 1; }
+        }
+
+        /* Section Styles */
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 0.24em;
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+        }
+
+        /* Philosophy Section */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 64px;
+        }
+
+        .philosophy-card {
+            padding: 40px;
+            border: 1px solid var(--color-border);
+            position: relative;
+            transition: all 0.6s ease;
+        }
+
+        .philosophy-card:hover {
+            background: rgba(179, 107, 74, 0.03);
+            border-color: rgba(179, 107, 74, 0.3);
+        }
+
+        .philosophy-title {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .philosophy-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--color-accent);
+        }
+
+        .philosophy-subtitle {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.08em;
+            margin-bottom: 24px;
+        }
+
+        .philosophy-desc {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Works Section */
+        .works-header {
+            margin-bottom: 80px;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 80px;
+        }
+
+        .work-card {
+            position: relative;
+        }
+
+        .work-image {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, rgba(229, 224, 218, 0.3) 0%, rgba(229, 224, 218, 0.1) 100%);
+            border: 1px dashed var(--color-border);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .work-image:hover {
+            transform: scale(1.03) translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .work-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(229, 224, 218, 0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(229, 224, 218, 0.5) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .work-placeholder {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.12em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .work-number {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.16em;
+            margin-bottom: 12px;
+        }
+
+        .work-title {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .work-chinese {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .work-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--color-text-muted);
+            margin-bottom: 12px;
+        }
+
+        .work-meta span {
+            position: relative;
+        }
+
+        .work-meta span:not(:last-child)::after {
+            content: '·';
+            margin-left: 16px;
+        }
+
+        .work-desc {
+            font-size: 13px;
+            color: var(--color-accent);
+            letter-spacing: 0.04em;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 64px;
+            align-items: start;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 52px;
+            top: 80px;
+            bottom: -48px;
+            width: 1px;
+            background: var(--color-border);
+        }
+
+        .process-number {
+            font-size: 44px;
+            font-weight: 300;
+            color: rgba(26, 26, 26, 0.15);
+            letter-spacing: 0.08em;
+            line-height: 1;
+        }
+
+        .process-content {
+            padding-top: 8px;
+        }
+
+        .process-title {
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .process-title span {
+            color: var(--color-text-muted);
+            font-weight: 300;
+            margin-left: 12px;
+        }
+
+        .process-desc {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 96px;
+        }
+
+        .about-content {
+            padding-top: 24px;
+        }
+
+        .about-desc {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .about-desc + .about-desc {
+            margin-top: 24px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .about-stat {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .stat-text {
+            font-size: 15px;
+            color: var(--color-accent);
+            letter-spacing: 0.04em;
+        }
+
+        .about-skills {
+            padding-left: 48px;
+            border-left: 1px solid var(--color-border);
+        }
+
+        .skill-group {
+            margin-bottom: 48px;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group-title {
+            font-size: 12px;
+            letter-spacing: 0.24em;
+            color: var(--color-text-muted);
+            margin-bottom: 20px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            font-size: 13px;
+            padding: 6px 12px;
+            border: 1px solid rgba(229, 224, 218, 0.8);
+            color: var(--color-text-secondary);
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .skill-tag:hover {
+            border-color: rgba(179, 107, 74, 0.5);
+            background: rgba(179, 107, 74, 0.03);
+            color: var(--color-accent);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            margin-bottom: 48px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .contact-item svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+        }
+
+        .contact-wechat {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .wechat-label {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.12em;
+        }
+
+        .wechat-qr {
+            width: 140px;
+            height: 140px;
+            background: white;
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--color-text-muted);
+        }
+
+        .wechat-hint {
+            font-size: 12px;
+            color: var(--color-text-muted);
+        }
+
+        .contact-footer {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .contact-closing {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.08em;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.08em;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-text);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 48px;
+            right: 48px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .back-to-top svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .nav-content {
+                padding: 20px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-vertical {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            section {
+                padding: 96px 0;
+            }
+
+            .philosophy-grid,
+            .works-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .process-step {
+                grid-template-columns: 60px 1fr;
+                gap: 32px;
+            }
+
+            .process-number {
+                font-size: 32px;
+            }
+
+            .about-skills {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid var(--color-border);
+                padding-top: 48px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .back-to-top {
+                bottom: 24px;
+                right: 24px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="nav-logo">MA</div>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active" data-section="home">
+                    <span class="nav-dot"></span>
+                    <span>首页</span>
+                </a>
+                <a href="#philosophy" class="nav-link" data-section="philosophy">
+                    <span class="nav-dot"></span>
+                    <span>理念</span>
+                </a>
+                <a href="#works" class="nav-link" data-section="works">
+                    <span class="nav-dot"></span>
+                    <span>作品</span>
+                </a>
+                <a href="#process" class="nav-link" data-section="process">
+                    <span class="nav-dot"></span>
+                    <span>过程</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <span class="nav-dot"></span>
+                    <span>关于</span>
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <span class="nav-dot"></span>
+                    <span>联系</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-vertical">DESIGN FOR QUIET LIVING</div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-subtitle">PORTFOLIO</div>
+                <h1 class="hero-title">MA</h1>
+                <p class="hero-description">
+                    以极简生活美学为方法，探索产品视觉、商业图像与数字体验的秩序感。
+                </p>
+                <div class="hero-tagline">Design for quiet living.</div>
+                <div class="hero-accent">
+                    <div class="accent-dot"></div>
+                    <div class="accent-line"></div>
+                    <span class="accent-text">Scroll to explore</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-line"></div>
+            <span>向下滚动</span>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">PHILOSOPHY</div>
+                <h2 class="section-title">设计理念</h2>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h3 class="philosophy-title"><span class="philosophy-dot"></span>Ma / 間</h3>
+                    <div class="philosophy-subtitle">留白的艺术</div>
+                    <p class="philosophy-desc">在电商视觉中，留白让产品成为焦点。适当的空间不仅提升视觉层次，更能引导消费者的注意力流向核心卖点。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3 class="philosophy-title"><span class="philosophy-dot"></span>Kanso / 简素</h3>
+                    <div class="philosophy-subtitle">去掉一切多余</div>
+                    <p class="philosophy-desc">在 A+ 页面和详情页设计中，用最少的元素传递最多价值。每一个视觉元素都必须服务于信息传达和商业转化。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3 class="philosophy-title"><span class="philosophy-dot"></span>Wabi-Sabi / 侘寂</h3>
+                    <div class="philosophy-subtitle">接受不完美之美</div>
+                    <p class="philosophy-desc">在产品渲染和场景图中，保留产品的真实质感。真实的光影、自然的材质，比过度修饰更能建立消费者信任。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3 class="philosophy-title"><span class="philosophy-dot"></span>Shibumi / 渋み</h3>
+                    <div class="philosophy-subtitle">含蓄的深度</div>
+                    <p class="philosophy-desc">在 TVC 广告和品牌叙事中，通过氛围和情感建立向往。不直接叫卖，而是让消费者在感受中产生认同和渴望。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <div class="container">
+            <div class="works-header">
+                <div class="section-label">SELECTED WORKS</div>
+                <h2 class="section-title">精选作品</h2>
+            </div>
+            <div class="works-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">01 / 08</div>
+                    <h3 class="work-title">TVC Commercial</h3>
+                    <div class="work-chinese">动态广告与产品视觉叙事</div>
+                    <div class="work-meta">
+                        <span>TVC / 品牌</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">用镜头语言讲述产品故事</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">02 / 08</div>
+                    <h3 class="work-title">E-commerce Visuals</h3>
+                    <div class="work-chinese">电商主图、卖点图与场景图</div>
+                    <div class="work-meta">
+                        <span>电商设计</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">让产品在第一眼就打动消费者</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">03 / 08</div>
+                    <h3 class="work-title">Amazon Listing System</h3>
+                    <div class="work-chinese">亚马逊主图与详情视觉系统</div>
+                    <div class="work-meta">
+                        <span>亚马逊</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">提升点击率与转化率的视觉方案</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">04 / 08</div>
+                    <h3 class="work-title">Amazon A+ Content</h3>
+                    <div class="work-chinese">品牌化 A+ 页面设计</div>
+                    <div class="work-meta">
+                        <span>A+页面</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">用品牌叙事建立消费者信任</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">05 / 08</div>
+                    <h3 class="work-title">Illustration & Graphic</h3>
+                    <div class="work-chinese">插画与图形视觉辅助</div>
+                    <div class="work-meta">
+                        <span>插画</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">为产品赋予独特的视觉个性</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">06 / 08</div>
+                    <h3 class="work-title">Detail Page Design</h3>
+                    <div class="work-chinese">产品详情页深度设计</div>
+                    <div class="work-meta">
+                        <span>详情页</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">信息层级与转化逻辑的完美结合</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">07 / 08</div>
+                    <h3 class="work-title">Visual Experiments</h3>
+                    <div class="work-chinese">风格探索与视觉实验</div>
+                    <div class="work-meta">
+                        <span>实验</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">在边界处寻找新的可能</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <span class="work-placeholder">作品</span>
+                    </div>
+                    <div class="work-number">08 / 08</div>
+                    <h3 class="work-title">C4D / Octane Rendering</h3>
+                    <div class="work-chinese">三维产品渲染与材质表现</div>
+                    <div class="work-meta">
+                        <span>3D渲染</span>
+                        <span>2024</span>
+                    </div>
+                    <p class="work-desc">用光影与材质展现产品质感</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">PROCESS</div>
+                <h2 class="section-title">设计过程</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Observe <span>观察</span></h3>
+                        <p class="process-desc">深入理解产品特性、目标人群与竞争环境。不急于动手，先让产品"说话"，理解它的本质和价值。</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Define <span>定义</span></h3>
+                        <p class="process-desc">明确设计目标与关键指标，建立视觉层级。知道什么最重要，什么可以舍弃，为商业转化设定清晰的路径。</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Simplify <span>简化</span></h3>
+                        <p class="process-desc">去掉一切干扰，保留核心价值。每一个元素都要问："这个真的必要吗？"在减法中找到设计的本质。</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Visualize <span>可视化</span></h3>
+                        <p class="process-desc">将产品价值转化为视觉语言。用图像、文字、空间的组合，让消费者在几秒内理解并产生购买欲望。</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">05</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Refine <span>打磨</span></h3>
+                        <p class="process-desc">反复推敲每个细节，在细微处见真章。像素级的调整，毫秒级的动画，让整个体验流畅而自然。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">ABOUT</div>
+                <h2 class="section-title">关于我</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="about-desc">
+                        我关注产品视觉、电商内容与数字界面的设计表达，
+                        擅长将产品信息转化为清晰、克制且具有生活感的视觉语言。
+                    </p>
+                    <p class="about-desc">
+                        在创作中，我借鉴日本极简美学中的留白、秩序与材质感，
+                        让商业画面不只是传递卖点，也能建立更安静、更可信的品牌印象。
+                    </p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="stat-label">Focus</div>
+                            <div class="stat-text">Product Visual</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="stat-label">Expertise</div>
+                            <div class="stat-text">E-commerce</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="stat-label">Approach</div>
+                            <div class="stat-text">AI Creation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skills">
+                    <div class="skill-group">
+                        <div class="skill-group-title">DESIGN</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Product Visual</span>
+                            <span class="skill-tag">E-commerce Design</span>
+                            <span class="skill-tag">Amazon A+</span>
+                            <span class="skill-tag">Detail Page</span>
+                            <span class="skill-tag">Layout Design</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-group-title">AI CREATION</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Midjourney</span>
+                            <span class="skill-tag">GPT-4</span>
+                            <span class="skill-tag">Nano Banana Pro</span>
+                            <span class="skill-tag">Image2</span>
+                            <span class="skill-tag">Sora</span>
+                            <span class="skill-tag">Runway</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-group-title">3D & MOTION</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Cinema 4D</span>
+                            <span class="skill-tag">Octane Render</span>
+                            <span class="skill-tag">After Effects</span>
+                            <span class="skill-tag">Blender</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-group-title">WEB</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">CONTACT</div>
+                <h2 class="section-title">联系方式</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <path d="M22 6l-10 7L2 6"/>
+                        </svg>
+                        <span>2922717190@qq.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <span>15080893955</span>
+                    </div>
+                </div>
+                <div class="contact-wechat">
+                    <div class="wechat-label">微信联系</div>
+                    <div class="wechat-qr">扫码添加</div>
+                    <div class="wechat-hint">微信二维码</div>
+                </div>
+                <div class="contact-footer">
+                    <p class="contact-closing">Let's create something quiet and clear.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>© 2024 MA — Design for quiet living</div>
+                <div class="footer-nav">
+                    <a href="#hero">首页</a>
+                    <a href="#works">作品</a>
+                    <a href="#contact">联系</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script>
+        // Scroll Indicator Hide
+        let scrollIndicator = document.getElementById('scrollIndicator');
+        let scrollIndicatorHidden = false;
+
+        // Navigation Active State
+        const sections = ['hero', 'philosophy', 'works', 'process', 'about', 'contact'];
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Smooth Scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('href');
+                const element = document.querySelector(target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Update Active Nav on Scroll
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach((sectionId, index) => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const activeLink = document.querySelector(`[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                }
+            });
+
+            // Hide scroll indicator after 100px
+            if (!scrollIndicatorHidden && window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+                scrollIndicator.style.transition = 'opacity 0.6s ease';
+                scrollIndicatorHidden = true;
+            }
+
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        // Back to Top Click
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Listen to Scroll
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Initial Call
+        updateActiveNav();
+    </script>
+</body>
+</html>
