@@ -1,43 +1,62 @@
 <!DOCTYPE html>
-<html lang="zh-CN" style="background-color: #F5F1EB !important; background: #F5F1EB !important;">
+<html lang="zh-CN" style="background-color: #F5F1EB !important; background: #F5F1EB !important; background-image: none !important;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MA - Design for quiet living</title>
+    <title>张彬彬 - AI视觉 & 三维设计师</title>
     <meta name="description" content="以极简生活美学为方法，探索产品视觉、商业图像与数字体验的秩序感。">
     <style>
-        /* 火狐浏览器强制背景色 - 最高优先级 */
-        html, body {
+        /* 最优先级的强制背景色 */
+        html, html * {
             background-color: #F5F1EB !important;
             background: #F5F1EB !important;
             background-image: none !important;
         }
 
-        /* 针对火狐浏览器的额外处理 */
+        html {
+            background-color: #F5F1EB !important;
+            background: #F5F1EB !important;
+            background-image: none !important;
+        }
+
+        body {
+            background-color: #F5F1EB !important;
+            background: #F5F1EB !important;
+            background-image: none !important;
+        }
+
+        /* 针对火狐浏览器 */
         @-moz-document url-prefix() {
-            html, body {
+            html, body, * {
                 background-color: #F5F1EB !important;
                 background: #F5F1EB !important;
+                background-image: none !important;
             }
         }
 
         /* 重置深色模式 */
         @media (prefers-color-scheme: dark) {
-            html, body {
+            html, body, * {
                 background-color: #F5F1EB !important;
                 background: #F5F1EB !important;
+                background-image: none !important;
                 color: #1A1A1A !important;
             }
         }
-/* 强制背景色 */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background-color: #F5F1EB !important;
-            background: #F5F1EB !important;
-            color: #1A1A1A;
-            line-height: 1.8;
-            font-size: 15px;
-            overflow-x: hidden;
+
+        /* 强制覆盖所有可能的深色模式 */
+        @media (prefers-color-scheme: light) {
+            html, body, * {
+                background-color: #F5F1EB !important;
+                background: #F5F1EB !important;
+                background-image: none !important;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         :root {
@@ -52,8 +71,9 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            background-color: #F5F1EB !important;
+            background: #F5F1EB !important;
+            color: #1A1A1A;
             line-height: 1.8;
             font-size: 15px;
             overflow-x: hidden;
@@ -77,7 +97,7 @@
             left: 0;
             right: 0;
             z-index: 50;
-            background: var(--color-bg);
+            background: #F5F1EB !important;
             border-bottom: 1px solid var(--color-border);
         }
 
@@ -141,6 +161,7 @@
         /* Hero Section */
         section {
             padding: 160px 0;
+            background: #F5F1EB !important;
         }
 
         .hero {
@@ -150,6 +171,7 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
+            background: #F5F1EB !important;
         }
 
         .hero-content {
@@ -656,6 +678,7 @@
         footer {
             padding: 48px 0;
             border-top: 1px solid var(--color-border);
+            background: #F5F1EB !important;
         }
 
         .footer-content {
@@ -684,7 +707,7 @@
             width: 40px;
             height: 40px;
             border: 1px solid var(--color-border);
-            background: var(--color-bg);
+            background: #F5F1EB !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -769,50 +792,9 @@
                 right: 24px;
             }
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.7;
-            }
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes breathe {
-            0%, 100% {
-                opacity: 0.4;
-            }
-            50% {
-                opacity: 0.7;
-            }
-        }
     </style>
 </head>
-<body>
+<body style="background-color: #F5F1EB !important; background: #F5F1EB !important;">
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-content">
@@ -848,15 +830,17 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
-        <div class="hero-vertical">DESIGN FOR QUIET LIVING</div>
+        <div class="hero-vertical">AI VISION & 3D DESIGN</div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-subtitle">PORTFOLIO</div>
-                <h1 class="hero-title">MA</h1>
+                <h1 class="hero-title">张彬彬</h1>
                 <p class="hero-description">
-                    以极简生活美学为方法，探索产品视觉、商业图像与数字体验的秩序感。
+                    三维设计师 · 1年工作经验<br>
+                    会用 vibecoding 写工作流的三维设计师，<br>
+                    擅长 C4D 建模渲染、AIGC 视觉创造、IP 形象、品牌视觉和 AI 漫剧动态镜头。
                 </p>
-                <div class="hero-tagline">Design for quiet living.</div>
+                <div class="hero-tagline">AI视觉 · 三维设计</div>
                 <div class="hero-accent">
                     <div class="accent-dot"></div>
                     <div class="accent-line"></div>
@@ -915,52 +899,52 @@
                         <span class="work-placeholder">作品</span>
                     </div>
                     <div class="work-number">01 / 08</div>
-                    <h3 class="work-title">TVC Commercial</h3>
-                    <div class="work-chinese">动态广告与产品视觉叙事</div>
+                    <h3 class="work-title">品牌产品动态广告片</h3>
+                    <div class="work-chinese">Video / Motion</div>
                     <div class="work-meta">
-                        <span>TVC / 品牌</span>
+                        <span>动态广告</span>
                         <span>2024</span>
                     </div>
-                    <p class="work-desc">用镜头语言讲述产品故事</p>
+                    <p class="work-desc">动态广告与产品视觉叙事</p>
                 </div>
                 <div class="work-card">
                     <div class="work-image">
                         <span class="work-placeholder">作品</span>
                     </div>
                     <div class="work-number">02 / 08</div>
-                    <h3 class="work-title">E-commerce Visuals</h3>
-                    <div class="work-chinese">电商主图、卖点图与场景图</div>
+                    <h3 class="work-title">电商主图与卖点视觉设计</h3>
+                    <div class="work-chinese">Visual Design</div>
                     <div class="work-meta">
-                        <span>电商设计</span>
+                        <span>电商视觉</span>
                         <span>2024</span>
                     </div>
-                    <p class="work-desc">让产品在第一眼就打动消费者</p>
+                    <p class="work-desc">主图、卖点图与场景图优化</p>
                 </div>
                 <div class="work-card">
                     <div class="work-image">
                         <span class="work-placeholder">作品</span>
                     </div>
                     <div class="work-number">03 / 08</div>
-                    <h3 class="work-title">Amazon Listing System</h3>
-                    <div class="work-chinese">亚马逊主图与详情视觉系统</div>
+                    <h3 class="work-title">亚马逊 Listing 视觉体系</h3>
+                    <div class="work-chinese">E-commerce Design</div>
                     <div class="work-meta">
                         <span>亚马逊</span>
                         <span>2024</span>
                     </div>
-                    <p class="work-desc">提升点击率与转化率的视觉方案</p>
+                    <p class="work-desc">主图规范、详情页结构与转化视觉系统</p>
                 </div>
                 <div class="work-card">
                     <div class="work-image">
                         <span class="work-placeholder">作品</span>
                     </div>
                     <div class="work-number">04 / 08</div>
-                    <h3 class="work-title">Amazon A+ Content</h3>
-                    <div class="work-chinese">品牌化 A+ 页面设计</div>
+                    <h3 class="work-title">亚马逊 A+ 品牌内容页设计</h3>
+                    <div class="work-chinese">Brand Content</div>
                     <div class="work-meta">
                         <span>A+页面</span>
                         <span>2024</span>
                     </div>
-                    <p class="work-desc">用品牌叙事建立消费者信任</p>
+                    <p class="work-desc">品牌故事、产品价值与页面视觉表达</p>
                 </div>
                 <div class="work-card">
                     <div class="work-image">
@@ -1075,67 +1059,57 @@
             <div class="about-grid">
                 <div class="about-content">
                     <p class="about-desc">
-                        我关注产品视觉、电商内容与数字界面的设计表达，
-                        擅长将产品信息转化为清晰、克制且具有生活感的视觉语言。
+                        我叫张彬彬，是一名会用 vibecoding 写工作流的三维设计师，
+                        擅长将 C4D 建模渲染、AIGC 视觉创造与 Agent 思维相结合，
+                        打造高效且有创意的视觉解决方案。
                     </p>
                     <p class="about-desc">
-                        在创作中，我借鉴日本极简美学中的留白、秩序与材质感，
-                        让商业画面不只是传递卖点，也能建立更安静、更可信的品牌印象。
+                        在创作中，我专注于产品建模、材质、灯光、渲染和商业场景表达，
+                        同时熟练运用 Nano Banana2、GPT Image 2 等视觉工具，
+                        用 Agent 思维和 vibecoding 把设计流程做得更高效。
                     </p>
                     <div class="about-stats">
                         <div class="about-stat">
-                            <div class="stat-label">Focus</div>
-                            <div class="stat-text">Product Visual</div>
+                            <div class="stat-label">经验</div>
+                            <div class="stat-text">1年</div>
                         </div>
                         <div class="about-stat">
-                            <div class="stat-label">Expertise</div>
-                            <div class="stat-text">E-commerce</div>
+                            <div class="stat-label">身份</div>
+                            <div class="stat-text">三维设计师</div>
                         </div>
                         <div class="about-stat">
-                            <div class="stat-label">Approach</div>
-                            <div class="stat-text">AI Creation</div>
+                            <div class="stat-label">特长</div>
+                            <div class="stat-text">AI视觉</div>
                         </div>
                     </div>
                 </div>
                 <div class="about-skills">
                     <div class="skill-group">
-                        <div class="skill-group-title">DESIGN</div>
+                        <div class="skill-group-title">C4D</div>
                         <div class="skill-tags">
-                            <span class="skill-tag">Product Visual</span>
-                            <span class="skill-tag">E-commerce Design</span>
-                            <span class="skill-tag">Amazon A+</span>
-                            <span class="skill-tag">Detail Page</span>
-                            <span class="skill-tag">Layout Design</span>
+                            <span class="skill-tag">产品建模</span>
+                            <span class="skill-tag">材质表现</span>
+                            <span class="skill-tag">灯光设计</span>
+                            <span class="skill-tag">Octane渲染</span>
+                            <span class="skill-tag">商业场景</span>
                         </div>
                     </div>
                     <div class="skill-group">
-                        <div class="skill-group-title">AI CREATION</div>
+                        <div class="skill-group-title">AIGC</div>
                         <div class="skill-tags">
-                            <span class="skill-tag">Midjourney</span>
-                            <span class="skill-tag">GPT-4</span>
-                            <span class="skill-tag">Nano Banana Pro</span>
-                            <span class="skill-tag">Image2</span>
-                            <span class="skill-tag">Sora</span>
-                            <span class="skill-tag">Runway</span>
+                            <span class="skill-tag">Nano Banana2</span>
+                            <span class="skill-tag">GPT Image 2</span>
+                            <span class="skill-tag">IP 形象</span>
+                            <span class="skill-tag">品牌视觉</span>
+                            <span class="skill-tag">AI 漫剧</span>
                         </div>
                     </div>
                     <div class="skill-group">
-                        <div class="skill-group-title">3D & MOTION</div>
+                        <div class="skill-group-title">AGENT</div>
                         <div class="skill-tags">
-                            <span class="skill-tag">Cinema 4D</span>
-                            <span class="skill-tag">Octane Render</span>
-                            <span class="skill-tag">After Effects</span>
-                            <span class="skill-tag">Blender</span>
-                        </div>
-                    </div>
-                    <div class="skill-group">
-                        <div class="skill-group-title">WEB</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Next.js</span>
-                            <span class="skill-tag">Tailwind CSS</span>
-                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">vibecoding</span>
+                            <span class="skill-tag">工作流</span>
+                            <span class="skill-tag">效率优化</span>
                         </div>
                     </div>
                 </div>
@@ -1182,7 +1156,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div>© 2024 MA — Design for quiet living</div>
+                <div>© 张彬彬 — AI视觉 · 三维设计</div>
                 <div class="footer-nav">
                     <a href="#hero">首页</a>
                     <a href="#works">作品</a>
@@ -1200,6 +1174,25 @@
     </button>
 
     <script>
+        // 强制设置背景色 - 用JavaScript确保
+        (function() {
+            document.documentElement.style.backgroundColor = '#F5F1EB';
+            document.documentElement.style.background = '#F5F1EB';
+            document.documentElement.style.backgroundImage = 'none';
+            
+            document.body.style.backgroundColor = '#F5F1EB';
+            document.body.style.background = '#F5F1EB';
+            document.body.style.backgroundImage = 'none';
+            
+            // 每隔一段时间强制设置
+            setInterval(function() {
+                document.documentElement.style.backgroundColor = '#F5F1EB';
+                document.documentElement.style.background = '#F5F1EB';
+                document.body.style.backgroundColor = '#F5F1EB';
+                document.body.style.background = '#F5F1EB';
+            }, 100);
+        })();
+        
         // Scroll Indicator Hide
         let scrollIndicator = document.getElementById('scrollIndicator');
         let scrollIndicatorHidden = false;
